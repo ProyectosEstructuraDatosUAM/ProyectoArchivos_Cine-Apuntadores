@@ -289,20 +289,36 @@ public class administrador extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    
+    //Se agrega objeto de la clase de apuntador 
+    Cls_DatosApuntador tempDatos = new Cls_DatosApuntador();
+    
     private ArrayList<RegistroCompra> ComprasRegistradas = new ArrayList<RegistroCompra>();
     private ArrayList<String> RegistrosActuales = new ArrayList<String>();
     private int IndiceLista = 0;
 
 
     private void btnPrimeroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPrimeroActionPerformed
-        // TODO add your handling code here:
+        /*
+        if(tempDatos.primero()==null){
+            JOptionPane.showMessageDialog(rootPane, "No hay datos a mostrar");
+        }else{
+            MostrarDatos(tempDatos.primero());
+        }
+        */
+        
         IndiceLista = 0;
         MostrarDatos(ComprasRegistradas.get(IndiceLista));
     }//GEN-LAST:event_btnPrimeroActionPerformed
 
     private void btnAnteriorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAnteriorActionPerformed
-        // TODO add your handling code here:
+        /*
+        if(tempDatos.primero()==null){
+            JOptionPane.showMessageDialog(rootPane, "No hay datos a mostrar");
+        }else{
+            MostrarDatos(tempDatos.anterior());
+        }
+        */
 
         if (IndiceLista < 1) {
             IndiceLista = 0;
@@ -317,7 +333,13 @@ public class administrador extends javax.swing.JFrame {
     }//GEN-LAST:event_btnAnteriorActionPerformed
 
     private void btnSiguienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSiguienteActionPerformed
-        // TODO add your handling code here:
+        /*
+        if(tempDatos.primero()==null){
+            JOptionPane.showMessageDialog(rootPane, "No hay datos a mostrar");
+        }else{
+            MostrarDatos(tempDatos.sigiente());
+        }
+        */
 
         if (IndiceLista >= (ComprasRegistradas.size() - 1)) {
             IndiceLista = ComprasRegistradas.size() - 1;
@@ -332,7 +354,13 @@ public class administrador extends javax.swing.JFrame {
     }//GEN-LAST:event_btnSiguienteActionPerformed
 
     private void btnUltimoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUltimoActionPerformed
-        // TODO add your handling code here:
+        /*
+        if(tempDatos.primero()==null){
+            JOptionPane.showMessageDialog(rootPane, "No hay datos a mostrar");
+        }else{
+            MostrarDatos(tempDatos.ultimo());
+        }
+        */
         IndiceLista = ComprasRegistradas.size() - 1;
         MostrarDatos(ComprasRegistradas.get(IndiceLista));
     }//GEN-LAST:event_btnUltimoActionPerformed
@@ -408,7 +436,8 @@ public class administrador extends javax.swing.JFrame {
     }//GEN-LAST:event_btnCargarActionPerformed
 
     private void btnDenegarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDenegarActionPerformed
-        // TODO add your handling code here:
+        
+       // tempDatos.Eliminar(txtNumeroTarjeta.getText());
 
         try {
             ComprasRegistradas.remove(IndiceLista);

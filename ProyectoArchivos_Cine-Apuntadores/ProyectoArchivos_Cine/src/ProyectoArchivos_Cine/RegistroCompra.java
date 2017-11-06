@@ -2,7 +2,7 @@
 package ProyectoArchivos_Cine;
 
 /**
-Clae encargada de manejar los datos de la compra
+Clase encargada de manejar los datos de la compra
  */
 public class RegistroCompra {
 
@@ -36,7 +36,7 @@ public class RegistroCompra {
     private RegistroCompra anterior;
     
     
-        ////////////////////////////////////////////////////////////////////////////
+    ////////////////////////////////////////////////////////////////////////////
     public RegistroCompra getSiguiente() {
         return siguiente;
     }
