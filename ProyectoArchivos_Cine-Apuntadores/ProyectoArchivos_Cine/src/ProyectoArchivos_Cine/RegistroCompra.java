@@ -29,6 +29,30 @@ public class RegistroCompra {
     private String PeliculaSeleccionada;
     private String FuncionSeleccionada;
     private String DiaSeleccionado;
+    
+    /*Se agregan variables de tipo de la clase en este caso siguiente y 
+    anterior de la clase Reservacion y sus respectivos set and get */
+    private RegistroCompra siguiente;
+    private RegistroCompra anterior;
+    
+    
+        ////////////////////////////////////////////////////////////////////////////
+    public RegistroCompra getSiguiente() {
+        return siguiente;
+    }
+
+    public void setSiguiente(RegistroCompra siguiente) {
+        this.siguiente = siguiente;
+    }
+
+    public RegistroCompra getAnterior() {
+        return anterior;
+    }
+
+    public void setAnterior(RegistroCompra anterior) {
+        this.anterior = anterior;
+    }
+    ////////////////////////////////////////////////////////////////////////////
 
     public String getIDCompra() {
         return IDCompra;

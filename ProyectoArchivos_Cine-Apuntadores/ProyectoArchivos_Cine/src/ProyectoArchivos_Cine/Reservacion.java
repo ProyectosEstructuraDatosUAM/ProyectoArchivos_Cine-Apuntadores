@@ -24,7 +24,6 @@ public class Reservacion {
     private String Tarjeta_Numero;
     private String Tarjeta_Expiracion;
     private String Tarjeta_CVV;
-
     
     public String getNombre_completo() {
         return nombre_completo;
