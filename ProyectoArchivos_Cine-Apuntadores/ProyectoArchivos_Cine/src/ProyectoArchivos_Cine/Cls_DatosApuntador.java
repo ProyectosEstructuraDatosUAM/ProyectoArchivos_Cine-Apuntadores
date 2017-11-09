@@ -62,12 +62,13 @@ public class Cls_DatosApuntador {
         
         if(objetoInicial==null){
             objetoInicial = llenar(nuevo,null);
-            objetoCola = objetoInicial;
-            objetoTemp = objetoInicial;   
+            objetoCola = objetoInicial;   
         }else{
             objetoCola.setSiguiente(llenar(nuevo,objetoCola));
             objetoCola = objetoCola.getSiguiente();
         }
+        
+        objetoTemp = objetoCola;
     }
 
     
@@ -94,14 +95,14 @@ public class Cls_DatosApuntador {
        return objetoCola; 
     }
     
-    public void  Eliminar(String Tarjeta_Numero){
+    public void  Eliminar(String IDCompra){
         if (objetoInicial==null) {
             JOptionPane.showMessageDialog(null, "No hay datos a mostrar");
         }else if ((objetoInicial == objetoCola) && 
-                (Tarjeta_Numero.equals(objetoInicial.getTarjeta_Numero()))){
+                (IDCompra.equals(objetoInicial.getIDCompra()))){
                 objetoInicial= null;
                 objetoCola= null;
-        }else if (Tarjeta_Numero.equals(objetoInicial.getTarjeta_Numero())) {
+        }else if (IDCompra.equals(objetoInicial.getIDCompra())) {
                 RegistroCompra TempAnterior= new RegistroCompra();
                 TempAnterior=objetoTemp.getAnterior();
                 objetoTemp=objetoTemp.getSiguiente();
@@ -109,7 +110,7 @@ public class Cls_DatosApuntador {
                 objetoTemp.setAnterior(TempAnterior);
                 TempAnterior.setSiguiente(objetoTemp);
                 
-        }else if(Tarjeta_Numero.equals(objetoCola.getTarjeta_Numero())){
+        }else if(IDCompra.equals(objetoCola.getIDCompra())){
                 RegistroCompra TempAnterior= new RegistroCompra();
                 TempAnterior=objetoCola.getAnterior();
                 objetoTemp=objetoCola.getSiguiente();
@@ -121,45 +122,7 @@ public class Cls_DatosApuntador {
             objetoTemp=objetoInicial;
             while(objetoTemp.getSiguiente()!=objetoCola)    
             {
-                if (Tarjeta_Numero.equals(objetoTemp.getTarjeta_Numero())) {
-                    TempAnterior=objetoTemp.getAnterior();
-                    objetoTemp=objetoTemp.getSiguiente();
-                    objetoTemp.setAnterior(TempAnterior);
-                    TempAnterior.setSiguiente(objetoTemp);
-                }else{
-                    objetoTemp=objetoTemp.getSiguiente();
-                }
-            }
-        }
-    }
-    
-    public void  Eliminar(RegistroCompra actual){
-        if (objetoInicial==null) {
-            JOptionPane.showMessageDialog(null, "No hay datos.");
-        }else if ((objetoInicial == objetoCola) && (actual == objetoInicial)){
-                objetoInicial= null;
-                objetoCola= null;
-        }else if (actual == objetoInicial) {
-                RegistroCompra TempAnterior= new RegistroCompra();
-                TempAnterior=objetoTemp.getAnterior();
-                objetoTemp=objetoTemp.getSiguiente();
-                objetoInicial=objetoTemp;
-                objetoTemp.setAnterior(TempAnterior);
-                TempAnterior.setSiguiente(objetoTemp);
-                
-        }else if(actual == objetoCola){
-                RegistroCompra TempAnterior= new RegistroCompra();
-                TempAnterior=objetoCola.getAnterior();
-                objetoTemp=objetoCola.getSiguiente();
-                objetoCola= TempAnterior;
-                objetoTemp.setAnterior(TempAnterior);
-                TempAnterior.setSiguiente(objetoTemp);
-        }else{
-            RegistroCompra TempAnterior= new RegistroCompra();
-            objetoTemp=objetoInicial;
-            while(objetoTemp.getSiguiente()!=objetoCola)    
-            {
-                if (actual == objetoTemp) {
+                if (IDCompra.equals(objetoTemp.getIDCompra())) {
                     TempAnterior=objetoTemp.getAnterior();
                     objetoTemp=objetoTemp.getSiguiente();
                     objetoTemp.setAnterior(TempAnterior);

@@ -412,6 +412,7 @@ public class administrador extends javax.swing.JFrame {
                 temp.setPeliculaSeleccionada(DatosCompra[12]);
                 temp.setFuncionSeleccionada(DatosCompra[13]);
                 temp.setAsientosSeleccionados(DatosCompra[14]);
+                temp.setIDCompra(DatosCompra[15]);
 
                 tempDatos.guardar(temp);
                 RegistrosActuales.add(linea);
@@ -443,7 +444,7 @@ public class administrador extends javax.swing.JFrame {
         try {
 //            ComprasRegistradas.remove(IndiceLista);
 //            RegistrosActuales.remove(IndiceLista);
-            tempDatos.Eliminar(tempDatos.objetoTemp);
+            tempDatos.Eliminar(tempDatos.objetoTemp.getIDCompra());
             btnAceptarCambios.setEnabled(true);
         } catch (Exception e) {
             JOptionPane.showMessageDialog(this, "No hay mas registros");
