@@ -291,7 +291,7 @@ public class administrador extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
     
     //Se agrega objeto de la clase de apuntador 
-    Cls_DatosApuntador tempDatos = new Cls_DatosApuntador();
+    private Cls_DatosApuntador tempDatos = new Cls_DatosApuntador();
     
     private ArrayList<RegistroCompra> ComprasRegistradas = new ArrayList<RegistroCompra>();
     private ArrayList<String> RegistrosActuales = new ArrayList<String>();
@@ -308,7 +308,7 @@ public class administrador extends javax.swing.JFrame {
         */
         
         IndiceLista = 0;
-        MostrarDatos(ComprasRegistradas.get(IndiceLista));
+        MostrarDatos(tempDatos.objetoInicial);
     }//GEN-LAST:event_btnPrimeroActionPerformed
 
     private void btnAnteriorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAnteriorActionPerformed
@@ -326,7 +326,7 @@ public class administrador extends javax.swing.JFrame {
             IndiceLista--;
         }
         try {
-            MostrarDatos(ComprasRegistradas.get(IndiceLista));
+            MostrarDatos(tempDatos.objetoTemp.getAnterior());
         } catch (Exception e) {
 
         }
@@ -347,7 +347,7 @@ public class administrador extends javax.swing.JFrame {
             IndiceLista++;
         }
         try {
-            MostrarDatos(ComprasRegistradas.get(IndiceLista));
+            MostrarDatos(tempDatos.objetoTemp.getSiguiente());
         } catch (Exception e) {
 
         }
@@ -362,7 +362,7 @@ public class administrador extends javax.swing.JFrame {
         }
         */
         IndiceLista = ComprasRegistradas.size() - 1;
-        MostrarDatos(ComprasRegistradas.get(IndiceLista));
+        MostrarDatos(tempDatos.objetoCola);
     }//GEN-LAST:event_btnUltimoActionPerformed
 
     private void btnRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarActionPerformed
@@ -413,6 +413,7 @@ public class administrador extends javax.swing.JFrame {
                 temp.setFuncionSeleccionada(DatosCompra[13]);
                 temp.setAsientosSeleccionados(DatosCompra[14]);
 
+                tempDatos.guardar(temp);
                 RegistrosActuales.add(linea);
                 ComprasRegistradas.add(temp);
 
@@ -440,8 +441,9 @@ public class administrador extends javax.swing.JFrame {
        // tempDatos.Eliminar(txtNumeroTarjeta.getText());
 
         try {
-            ComprasRegistradas.remove(IndiceLista);
-            RegistrosActuales.remove(IndiceLista);
+//            ComprasRegistradas.remove(IndiceLista);
+//            RegistrosActuales.remove(IndiceLista);
+            tempDatos.Eliminar(tempDatos.objetoTemp);
             btnAceptarCambios.setEnabled(true);
         } catch (Exception e) {
             JOptionPane.showMessageDialog(this, "No hay mas registros");

@@ -66,7 +66,8 @@ public class UsoArchivos {
                 + Usuario.getCantidadTiquetes() + ";"
                 + Usuario.getPeliculaSeleccionada() + ";"
                 + Usuario.getFuncionSeleccionada() + ";"
-                + Usuario.getAsientosSeleccionados() + "\r\n"; //Ultimo dato de la línea
+                + Usuario.getAsientosSeleccionados() + ";"
+                 + Usuario.getIDCompra() + "\r\n"; //Ultimo dato de la línea
 
         buffer.write(registro);
         buffer.close();

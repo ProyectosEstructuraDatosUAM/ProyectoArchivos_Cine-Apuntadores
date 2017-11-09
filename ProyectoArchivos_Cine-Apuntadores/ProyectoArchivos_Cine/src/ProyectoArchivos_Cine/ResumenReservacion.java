@@ -11,6 +11,7 @@ public class ResumenReservacion extends javax.swing.JFrame {
     Reservacion reserva = new Reservacion();
     /*Declaramos un objeto reservacion*/
 
+    public String IDCompra;
     public String tiquetes = "";
 
     public ResumenReservacion() {
@@ -303,7 +304,7 @@ public class ResumenReservacion extends javax.swing.JFrame {
         pago.registro.setFuncionSeleccionada(txt_tanda.getText());
         pago.registro.setAsientosSeleccionados(tiquetes);
         pago.registro.setPagoRealizado(txt_total.getText());
-        
+        pago.registro.setIDCompra(IDCompra);
         pago.setVisible(true);
         this.setVisible(false);
 

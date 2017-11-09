@@ -26,6 +26,8 @@ public class Cls_DatosApuntador {
         
         return obTemp;       
     }
+
+
     public void guardar(String PeliculaSeleccionada, String CantidadTiquetes,
             String PagoRealizado, String Tarjeta_Habiente, String Tarjeta_Tipo,
             String Tarjeta_Numero, String Tarjeta_Expiracion, String Tarjeta_CVV){
@@ -43,7 +45,33 @@ public class Cls_DatosApuntador {
             objetoCola = objetoCola.getSiguiente();
         }
     }
-    public RegistroCompra sigiente(){
+    
+    
+    
+        public RegistroCompra llenar(RegistroCompra obTemp,
+            RegistroCompra anterior){
+            
+        obTemp.setAnterior(anterior);
+        obTemp.setSiguiente(null);
+        
+        return obTemp;       
+    }
+
+    
+        public void guardar(RegistroCompra nuevo){
+        
+        if(objetoInicial==null){
+            objetoInicial = llenar(nuevo,null);
+            objetoCola = objetoInicial;
+            objetoTemp = objetoInicial;   
+        }else{
+            objetoCola.setSiguiente(llenar(nuevo,objetoCola));
+            objetoCola = objetoCola.getSiguiente();
+        }
+    }
+
+    
+    public RegistroCompra Siguiente(){
         if(objetoTemp.getSiguiente()==null){
             return objetoTemp;
         }else{
@@ -51,7 +79,7 @@ public class Cls_DatosApuntador {
             return objetoTemp;
         }
     }
-    public RegistroCompra anterior(){
+    public RegistroCompra Anterior(){
         if(objetoTemp.getAnterior()==null){
             return objetoTemp;
         }else{
@@ -59,10 +87,10 @@ public class Cls_DatosApuntador {
             return objetoTemp;
         }
     }
-    public RegistroCompra primero(){
+    public RegistroCompra Primero(){
         return objetoInicial;
     }
-    public RegistroCompra ultimo(){
+    public RegistroCompra Ultimo(){
        return objetoCola; 
     }
     
@@ -104,5 +132,44 @@ public class Cls_DatosApuntador {
             }
         }
     }
+    
+    public void  Eliminar(RegistroCompra actual){
+        if (objetoInicial==null) {
+            JOptionPane.showMessageDialog(null, "No hay datos.");
+        }else if ((objetoInicial == objetoCola) && (actual == objetoInicial)){
+                objetoInicial= null;
+                objetoCola= null;
+        }else if (actual == objetoInicial) {
+                RegistroCompra TempAnterior= new RegistroCompra();
+                TempAnterior=objetoTemp.getAnterior();
+                objetoTemp=objetoTemp.getSiguiente();
+                objetoInicial=objetoTemp;
+                objetoTemp.setAnterior(TempAnterior);
+                TempAnterior.setSiguiente(objetoTemp);
+                
+        }else if(actual == objetoCola){
+                RegistroCompra TempAnterior= new RegistroCompra();
+                TempAnterior=objetoCola.getAnterior();
+                objetoTemp=objetoCola.getSiguiente();
+                objetoCola= TempAnterior;
+                objetoTemp.setAnterior(TempAnterior);
+                TempAnterior.setSiguiente(objetoTemp);
+        }else{
+            RegistroCompra TempAnterior= new RegistroCompra();
+            objetoTemp=objetoInicial;
+            while(objetoTemp.getSiguiente()!=objetoCola)    
+            {
+                if (actual == objetoTemp) {
+                    TempAnterior=objetoTemp.getAnterior();
+                    objetoTemp=objetoTemp.getSiguiente();
+                    objetoTemp.setAnterior(TempAnterior);
+                    TempAnterior.setSiguiente(objetoTemp);
+                }else{
+                    objetoTemp=objetoTemp.getSiguiente();
+                }
+            }
+        }
+    }
+    
   }
 

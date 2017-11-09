@@ -7,7 +7,6 @@ Clase encargada de manejar los datos de la compra
 public class RegistroCompra {
 
     //Informacion General del cliente y compra
-    private String IDCompra;
     private String NombreComprador;
     private String ApellidosComprador;
     private String CedulaComprador;
@@ -34,6 +33,8 @@ public class RegistroCompra {
     anterior de la clase Reservacion y sus respectivos set and get */
     private RegistroCompra siguiente;
     private RegistroCompra anterior;
+    
+    private String IDCompra;
     
     
     ////////////////////////////////////////////////////////////////////////////

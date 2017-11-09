@@ -28,6 +28,7 @@ public class seleccionCampos extends javax.swing.JFrame {
     ArrayList<Reservacion> lista = new ArrayList<Reservacion>();
     ArrayList<String> TiquetesSeleccionados = new ArrayList<String>();
     ArrayList<String> AsientosSeleccionados = new ArrayList<String>();
+    String IDCompra = "";
     Reservacion reserva = new Reservacion(); //Esta clase almacena todos los elementos importantes
     String tipoTicket = " ", tanda = " ";
 
@@ -2045,7 +2046,7 @@ public class seleccionCampos extends javax.swing.JFrame {
             abrir.txt_tanda.setText(txt_tanda.getText());
             abrir.txt_butacas.setText(capturaArray);
             abrir.tiquetes = tiquetes;
-
+            abrir.IDCompra = IDCompra;
             
             abrir.setVisible(true);
             this.setVisible(false);
@@ -2349,25 +2350,32 @@ public class seleccionCampos extends javax.swing.JFrame {
         }
         BufferedReader b = new BufferedReader(f);
         try {
-            
+            int id = 0;
             //Se leen todas las lineas del archivo
             while ((linea = b.readLine()) != null) {
 
                 //Se dividen cada linea en un arreglo separado por ;
                 String DatosCompra[] = linea.split(";");
-
+                id = Integer.parseInt(DatosCompra[15]) +1 ;
                 //Cuando se encuentren las coincidencias tanto de pelicula como de la tanda, se extraen esos datos en un string.
                 if (((DatosCompra[12]).equals(PeliculaYaReservada)) && (DatosCompra[13].equals(TandaYaReservada))) {
                     TiquetesYaReservados = (DatosCompra[14]) + "," + TiquetesYaReservados;
                     //Se extrae el archivo con comma de separador
-
+                    
                 }
-
+                
+            
             }
+
+            IDCompra = id + "";
+            
+            
         } catch (IOException ex) {
             Logger.getLogger(seleccionCampos.class
                     .getName()).log(Level.SEVERE, null, ex);
         }
+        
+                
         //************************************************************************************************************************
         DesactBoton(Btn_A1);DesactBoton(Btn_A2);DesactBoton(Btn_A3);DesactBoton(Btn_A4);DesactBoton(Btn_A5);
         DesactBoton(Btn_A6);DesactBoton(Btn_A7);DesactBoton(Btn_A8);DesactBoton(Btn_A9);DesactBoton(Btn_A10);

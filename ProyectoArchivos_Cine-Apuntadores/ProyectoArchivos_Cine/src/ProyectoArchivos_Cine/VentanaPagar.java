@@ -242,7 +242,7 @@ public class VentanaPagar extends javax.swing.JFrame {
                 Logger.getLogger(VentanaPagar.class.getName()).log(Level.SEVERE, null, ex);
             }
             
-            JOptionPane.showMessageDialog(rootPane, "Su reservacion se realizo con exito");
+            JOptionPane.showMessageDialog(rootPane, "Su reservacion se realizo con exito, ID de Compra: " + registro.getIDCompra());
             principal abrir = new principal();
             abrir.setVisible(true);
             this.setVisible(false);
