@@ -312,15 +312,15 @@ public class administrador extends javax.swing.JFrame {
     }//GEN-LAST:event_btnPrimeroActionPerformed
 
     private void btnAnteriorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAnteriorActionPerformed
-        /*
-        if(tempDatos.primero()==null){
+       
+        if(tempDatos.Primero()==null){
             JOptionPane.showMessageDialog(rootPane, "No hay datos a mostrar");
         }else{
-            MostrarDatos(tempDatos.anterior());
+            MostrarDatos(tempDatos.Anterior());
         }
-        */
+        
 
-        if (IndiceLista < 1) {
+        /*if (IndiceLista < 1) {
             IndiceLista = 0;
         } else {
             IndiceLista--;
@@ -329,19 +329,19 @@ public class administrador extends javax.swing.JFrame {
             MostrarDatos(tempDatos.objetoTemp.getAnterior());
         } catch (Exception e) {
 
-        }
+        }*/
     }//GEN-LAST:event_btnAnteriorActionPerformed
 
     private void btnSiguienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSiguienteActionPerformed
-        /*
-        if(tempDatos.primero()==null){
+
+        if(tempDatos.Primero()==null){
             JOptionPane.showMessageDialog(rootPane, "No hay datos a mostrar");
         }else{
-            MostrarDatos(tempDatos.sigiente());
+            MostrarDatos(tempDatos.Siguiente());
         }
-        */
 
-        if (IndiceLista >= (ComprasRegistradas.size() - 1)) {
+
+       /* if (IndiceLista >= (ComprasRegistradas.size() - 1)) {
             IndiceLista = ComprasRegistradas.size() - 1;
         } else {
             IndiceLista++;
@@ -350,7 +350,7 @@ public class administrador extends javax.swing.JFrame {
             MostrarDatos(tempDatos.objetoTemp.getSiguiente());
         } catch (Exception e) {
 
-        }
+        }*/
     }//GEN-LAST:event_btnSiguienteActionPerformed
 
     private void btnUltimoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUltimoActionPerformed
