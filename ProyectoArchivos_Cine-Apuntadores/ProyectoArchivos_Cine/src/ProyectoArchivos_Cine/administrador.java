@@ -446,13 +446,14 @@ public class administrador extends javax.swing.JFrame {
 //            RegistrosActuales.remove(IndiceLista);
             tempDatos.Eliminar(tempDatos.objetoTemp.getIDCompra());
             btnAceptarCambios.setEnabled(true);
+            JOptionPane.showMessageDialog(this, "Dato eliminado");
         } catch (Exception e) {
             JOptionPane.showMessageDialog(this, "No hay mas registros");
         }
 
         IndiceLista--;
 
-        if (IndiceLista < 0) {
+        if (IndiceLista <= 0) {
             IndiceLista = 0;
         }
 
