@@ -1910,6 +1910,7 @@ public class seleccionCampos extends javax.swing.JFrame {
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 830, 530));
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void Btn_E3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_E3ActionPerformed

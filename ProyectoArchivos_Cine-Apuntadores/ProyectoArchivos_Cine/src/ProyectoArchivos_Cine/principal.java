@@ -119,6 +119,7 @@ public class principal extends javax.swing.JFrame {
         getContentPane().add(txt_Selecciontanda, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 420, 180, -1));
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void Btn_Pelicula1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_Pelicula1ActionPerformed

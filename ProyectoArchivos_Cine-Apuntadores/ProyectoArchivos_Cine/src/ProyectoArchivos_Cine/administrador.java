@@ -288,6 +288,7 @@ public class administrador extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
     
     //Se agrega objeto de la clase de apuntador 
