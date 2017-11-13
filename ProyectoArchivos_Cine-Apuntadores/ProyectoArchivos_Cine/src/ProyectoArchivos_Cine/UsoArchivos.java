@@ -75,6 +75,13 @@ public class UsoArchivos {
 
     }
     
+    public void eliminar()
+            
+    {
+        File nuevo = new File("Informacion de Compra.txt");        
+        nuevo.delete();
+    }
+    
     public void GuardarCambios(String cambios) throws IOException {
         File nuevo = new File("Informacion de Compra.txt");
         

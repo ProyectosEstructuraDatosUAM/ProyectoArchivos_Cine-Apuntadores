@@ -1,4 +1,3 @@
-
 package ProyectoArchivos_Cine;
 
 import java.io.BufferedReader;
@@ -11,10 +10,10 @@ import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**
-Form para uso de administrador donde se vizualiza la reservacion
-* se acepta o se rechaza, si se rechaza el metodo en selecciona campos
-* se pondra de nuevo en verde, de lo contrario el sistema lo mantendra en rojo
-*/
+ * Form para uso de administrador donde se vizualiza la reservacion se acepta o
+ * se rechaza, si se rechaza el metodo en selecciona campos se pondra de nuevo
+ * en verde, de lo contrario el sistema lo mantendra en rojo
+ */
 public class administrador extends javax.swing.JFrame {
 
     /**
@@ -290,10 +289,10 @@ public class administrador extends javax.swing.JFrame {
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-    
+
     //Se agrega objeto de la clase de apuntador 
     private Cls_DatosApuntador tempDatos = new Cls_DatosApuntador();
-    
+
     private ArrayList<RegistroCompra> ComprasRegistradas = new ArrayList<RegistroCompra>();
     private ArrayList<String> RegistrosActuales = new ArrayList<String>();
     private int IndiceLista = 0;
@@ -306,21 +305,21 @@ public class administrador extends javax.swing.JFrame {
         }else{
             MostrarDatos(tempDatos.primero());
         }
-        */
-        
+         */
+
         IndiceLista = 0;
-        tempDatos.objetoTemp=tempDatos.objetoInicial;
+        tempDatos.objetoTemp = tempDatos.objetoInicial;
         MostrarDatos(tempDatos.objetoTemp);
     }//GEN-LAST:event_btnPrimeroActionPerformed
 
     private void btnAnteriorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAnteriorActionPerformed
-       
-        if(tempDatos.Primero()==null){
+
+        if (tempDatos.Primero() == null) {
             JOptionPane.showMessageDialog(rootPane, "No hay datos a mostrar");
-        }else{
+        } else {
             MostrarDatos(tempDatos.Anterior());
         }
-        
+
 
         /*if (IndiceLista < 1) {
             IndiceLista = 0;
@@ -336,14 +335,14 @@ public class administrador extends javax.swing.JFrame {
 
     private void btnSiguienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSiguienteActionPerformed
 
-        if(tempDatos.Primero()==null){
+        if (tempDatos.Primero() == null) {
             JOptionPane.showMessageDialog(rootPane, "No hay datos a mostrar");
-        }else{
+        } else {
             MostrarDatos(tempDatos.Siguiente());
         }
 
 
-       /* if (IndiceLista >= (ComprasRegistradas.size() - 1)) {
+        /* if (IndiceLista >= (ComprasRegistradas.size() - 1)) {
             IndiceLista = ComprasRegistradas.size() - 1;
         } else {
             IndiceLista++;
@@ -362,9 +361,9 @@ public class administrador extends javax.swing.JFrame {
         }else{
             MostrarDatos(tempDatos.ultimo());
         }
-        */
+         */
         IndiceLista = ComprasRegistradas.size() - 1;
-        tempDatos.objetoTemp=tempDatos.objetoCola;
+        tempDatos.objetoTemp = tempDatos.objetoCola;
         MostrarDatos(tempDatos.objetoTemp);
     }//GEN-LAST:event_btnUltimoActionPerformed
 
@@ -441,9 +440,8 @@ public class administrador extends javax.swing.JFrame {
     }//GEN-LAST:event_btnCargarActionPerformed
 
     private void btnDenegarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDenegarActionPerformed
-        
-       // tempDatos.Eliminar(txtNumeroTarjeta.getText());
 
+        // tempDatos.Eliminar(txtNumeroTarjeta.getText());
         try {
 //            ComprasRegistradas.remove(IndiceLista);
 //            RegistrosActuales.remove(IndiceLista);
@@ -462,18 +460,15 @@ public class administrador extends javax.swing.JFrame {
 
         if (!ComprasRegistradas.isEmpty()) {
             MostrarDatos(ComprasRegistradas.get(IndiceLista));
-        }
-        
-        else
-        {
+        } else {
             btnDenegar.setEnabled(false);
-            
-            RegistroCompra ob = new RegistroCompra ();
+
+            RegistroCompra ob = new RegistroCompra();
             ob.setPeliculaSeleccionada("");
             ob.setCantidadTiquetes("");
             ob.setPagoRealizado("");
             ob.setTarjeta_Habiente("");
-            
+
             ob.setTarjeta_Tipo("");
             ob.setTarjeta_Numero("");
             ob.setTarjeta_Expiracion("");
@@ -485,21 +480,36 @@ public class administrador extends javax.swing.JFrame {
 
     private void btnAceptarCambiosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAceptarCambiosActionPerformed
         // TODO add your handling code here:
-        String linea="";
-        
-        for (int i = 0; i <  RegistrosActuales.size(); i++) {
+        UsoArchivos archivo = new UsoArchivos();
+        String linea = "";
+
+        for (int i = 0; i < RegistrosActuales.size(); i++) {
             linea = linea + RegistrosActuales.get(i) + "\r\n";
         }
         
-        UsoArchivos archivo = new UsoArchivos();
-        try {
+        archivo.eliminar();
+        tempDatos.objetoTemp=tempDatos.objetoInicial;
+        do {
+            try {
+                
+                archivo.GuardarCompra(tempDatos.objetoTemp);
+            } catch (IOException ex) {
+                Logger.getLogger(administrador.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            tempDatos.objetoTemp=tempDatos.objetoTemp.getSiguiente();
+        } while (tempDatos.objetoTemp != null);
+
+        
+        tempDatos.objetoTemp = tempDatos.objetoInicial;
+        MostrarDatos(tempDatos.objetoTemp);
+        /*try {
             archivo.GuardarCambios(linea);
         } catch (IOException ex) {
             Logger.getLogger(administrador.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        }*/
         btnAceptarCambios.setEnabled(false);
-            
-        
+
+
     }//GEN-LAST:event_btnAceptarCambiosActionPerformed
 
     private void MostrarDatos(RegistroCompra ob) {

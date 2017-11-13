@@ -8,6 +8,8 @@ public class Cls_DatosApuntador {
     RegistroCompra objetoCola;
     RegistroCompra objetoTemp;
     
+    
+   /* //Se comentan porque se modificaron para usar todo el objeto, no se consiguen datos separados 
     public RegistroCompra llenar(String PeliculaSeleccionada, String CantidadTiquetes,
             String PagoRealizado, String Tarjeta_Habiente, String Tarjeta_Tipo,
             String Tarjeta_Numero, String Tarjeta_Expiracion, String Tarjeta_CVV,
@@ -45,11 +47,10 @@ public class Cls_DatosApuntador {
             objetoCola = objetoCola.getSiguiente();
         }
     }
+    */
     
     
-    
-        public RegistroCompra llenar(RegistroCompra obTemp,
-            RegistroCompra anterior){
+        public RegistroCompra llenar(RegistroCompra obTemp, RegistroCompra anterior){
             
         obTemp.setAnterior(anterior);
         obTemp.setSiguiente(null);
