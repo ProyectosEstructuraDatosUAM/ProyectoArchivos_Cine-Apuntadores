@@ -308,7 +308,8 @@ public class administrador extends javax.swing.JFrame {
         */
         
         IndiceLista = 0;
-        MostrarDatos(tempDatos.objetoInicial);
+        tempDatos.objetoTemp=tempDatos.objetoInicial;
+        MostrarDatos(tempDatos.objetoTemp);
     }//GEN-LAST:event_btnPrimeroActionPerformed
 
     private void btnAnteriorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAnteriorActionPerformed
@@ -362,7 +363,8 @@ public class administrador extends javax.swing.JFrame {
         }
         */
         IndiceLista = ComprasRegistradas.size() - 1;
-        MostrarDatos(tempDatos.objetoCola);
+        tempDatos.objetoTemp=tempDatos.objetoCola;
+        MostrarDatos(tempDatos.objetoTemp);
     }//GEN-LAST:event_btnUltimoActionPerformed
 
     private void btnRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarActionPerformed
