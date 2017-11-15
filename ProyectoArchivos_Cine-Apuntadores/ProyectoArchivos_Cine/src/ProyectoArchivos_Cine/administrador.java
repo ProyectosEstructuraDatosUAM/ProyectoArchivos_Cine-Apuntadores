@@ -303,13 +303,14 @@ public class administrador extends javax.swing.JFrame {
         if(tempDatos.primero()==null){
             JOptionPane.showMessageDialog(rootPane, "No hay datos a mostrar");
         }else{
-            MostrarDatos(tempDatos.primero());
+            MostrarDatos(tempDatos.Primero());
         }
          */
 
         IndiceLista = 0;
-        tempDatos.objetoTemp = tempDatos.objetoInicial;
-        MostrarDatos(tempDatos.objetoTemp);
+        //tempDatos.objetoTemp = tempDatos.objetoInicial;
+        //MostrarDatos(tempDatos.objetoTemp);
+        MostrarDatos(tempDatos.Primero());
     }//GEN-LAST:event_btnPrimeroActionPerformed
 
     private void btnAnteriorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAnteriorActionPerformed
@@ -355,16 +356,16 @@ public class administrador extends javax.swing.JFrame {
     }//GEN-LAST:event_btnSiguienteActionPerformed
 
     private void btnUltimoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUltimoActionPerformed
-        /*
-        if(tempDatos.primero()==null){
+
+        if(tempDatos.Primero()==null){
             JOptionPane.showMessageDialog(rootPane, "No hay datos a mostrar");
         }else{
-            MostrarDatos(tempDatos.ultimo());
+            MostrarDatos(tempDatos.Ultimo());
         }
-         */
-        IndiceLista = ComprasRegistradas.size() - 1;
-        tempDatos.objetoTemp = tempDatos.objetoCola;
-        MostrarDatos(tempDatos.objetoTemp);
+        //IndiceLista = ComprasRegistradas.size() - 1;
+        //tempDatos.objetoTemp = tempDatos.objetoCola;
+        //MostrarDatos(tempDatos.objetoTemp);
+        
     }//GEN-LAST:event_btnUltimoActionPerformed
 
     private void btnRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarActionPerformed
@@ -417,8 +418,8 @@ public class administrador extends javax.swing.JFrame {
                 temp.setIDCompra(DatosCompra[15]);
 
                 tempDatos.guardar(temp);
-                RegistrosActuales.add(linea);
-                ComprasRegistradas.add(temp);
+                //RegistrosActuales.add(linea);
+                //ComprasRegistradas.add(temp);
 
             }
 
@@ -462,7 +463,7 @@ public class administrador extends javax.swing.JFrame {
         if (!ComprasRegistradas.isEmpty()) {
             MostrarDatos(ComprasRegistradas.get(IndiceLista));
         } else {
-            btnDenegar.setEnabled(false);
+            btnDenegar.setEnabled(true);
 
             RegistroCompra ob = new RegistroCompra();
             ob.setPeliculaSeleccionada("");
