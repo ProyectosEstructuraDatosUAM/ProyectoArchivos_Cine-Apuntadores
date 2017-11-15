@@ -6,6 +6,8 @@
 package ProyectoArchivos_Cine;
 
 import java.io.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
 maneja os archivos del sistema para el almacenamiento de la informacion
@@ -73,13 +75,6 @@ public class UsoArchivos {
         buffer.close();
         escribir.close();
 
-    }
-    
-    public void eliminar()
-            
-    {
-        File nuevo = new File("Informacion de Compra.txt");        
-        nuevo.delete();
     }
     
     public void GuardarCambios(String cambios) throws IOException {

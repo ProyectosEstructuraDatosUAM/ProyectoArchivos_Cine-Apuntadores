@@ -480,24 +480,15 @@ public class administrador extends javax.swing.JFrame {
 
     private void btnAceptarCambiosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAceptarCambiosActionPerformed
         // TODO add your handling code here:
-        UsoArchivos archivo = new UsoArchivos();
+       // UsoArchivos archivo = new UsoArchivos();
         String linea = "";
 
         for (int i = 0; i < RegistrosActuales.size(); i++) {
             linea = linea + RegistrosActuales.get(i) + "\r\n";
         }
         
-        archivo.eliminar();
-        tempDatos.objetoTemp=tempDatos.objetoInicial;
-        do {
-            try {
-                
-                archivo.GuardarCompra(tempDatos.objetoTemp);
-            } catch (IOException ex) {
-                Logger.getLogger(administrador.class.getName()).log(Level.SEVERE, null, ex);
-            }
-            tempDatos.objetoTemp=tempDatos.objetoTemp.getSiguiente();
-        } while (tempDatos.objetoTemp != null);
+        tempDatos.ActualizarArchivo();
+        
 
         
         tempDatos.objetoTemp = tempDatos.objetoInicial;

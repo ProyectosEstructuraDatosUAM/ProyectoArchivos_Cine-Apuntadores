@@ -1,6 +1,10 @@
 
 package ProyectoArchivos_Cine;
 /*Usando listas doblemente enlazadas*/
+import java.io.File;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 public class Cls_DatosApuntador {
@@ -58,6 +62,26 @@ public class Cls_DatosApuntador {
         return obTemp;       
     }
 
+        
+    public void ActualizarArchivo()
+            
+    {
+        File nuevo = new File("Informacion de Compra.txt");        
+        nuevo.delete();
+        objetoTemp=objetoInicial;
+        do {            
+                UsoArchivos archivo = new UsoArchivos();
+            try {
+                archivo.GuardarCompra(objetoTemp);
+            } catch (IOException ex) {
+                Logger.getLogger(Cls_DatosApuntador.class.getName()).log(Level.SEVERE, null, ex);
+            }
+         
+                
+            objetoTemp=objetoTemp.getSiguiente();
+        } while (objetoTemp != null);
+    }
+    
     
         public void guardar(RegistroCompra nuevo){
         
