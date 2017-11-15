@@ -434,8 +434,9 @@ public class administrador extends javax.swing.JFrame {
         btnAnterior.setEnabled(true);
         btnCargar.setEnabled(false);
         btnDenegar.setEnabled(true);
-
-        MostrarDatos(ComprasRegistradas.get(IndiceLista));
+        
+        tempDatos.objetoTemp=tempDatos.objetoInicial;
+        MostrarDatos(tempDatos.objetoInicial);
 
     }//GEN-LAST:event_btnCargarActionPerformed
 
