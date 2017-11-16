@@ -299,18 +299,18 @@ public class administrador extends javax.swing.JFrame {
 
 
     private void btnPrimeroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPrimeroActionPerformed
-        /*
-        if(tempDatos.primero()==null){
+        
+        if(tempDatos.Primero()==null){
             JOptionPane.showMessageDialog(rootPane, "No hay datos a mostrar");
         }else{
             MostrarDatos(tempDatos.Primero());
         }
-         */
+         
 
-        IndiceLista = 0;
-        tempDatos.objetoTemp = tempDatos.objetoInicial;
-        MostrarDatos(tempDatos.objetoTemp);
-        MostrarDatos(tempDatos.Primero());
+        //IndiceLista = 0;
+        //tempDatos.objetoTemp = tempDatos.objetoInicial;
+        //MostrarDatos(tempDatos.objetoTemp);
+        //MostrarDatos(tempDatos.Primero());
     }//GEN-LAST:event_btnPrimeroActionPerformed
 
     private void btnAnteriorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAnteriorActionPerformed
@@ -320,14 +320,13 @@ public class administrador extends javax.swing.JFrame {
         } else {
             MostrarDatos(tempDatos.Anterior());
         }
-
-
-        /*if (IndiceLista < 1) {
-            IndiceLista = 0;
-        } else {
-            IndiceLista--;
-        }
-        try {
+        
+        //if (IndiceLista < 1) {
+        //    IndiceLista = 0;
+        //} else {
+        //    IndiceLista--;
+        //}
+        /*try {
             MostrarDatos(tempDatos.objetoTemp.getAnterior());
         } catch (Exception e) {
 
@@ -343,12 +342,12 @@ public class administrador extends javax.swing.JFrame {
         }
 
 
-        /*if (IndiceLista >= (ComprasRegistradas.size() - 1)) {
-            IndiceLista = ComprasRegistradas.size() - 1;
-        } else {
-            IndiceLista++;
-        }
-        try {
+        //if (IndiceLista >= (ComprasRegistradas.size() - 1)) {
+        //    IndiceLista = ComprasRegistradas.size() - 1;
+        //} else {
+        //    IndiceLista++;
+        //}
+        /*try {
             MostrarDatos(tempDatos.objetoTemp.getSiguiente());
         } catch (Exception e) {
 
@@ -357,15 +356,16 @@ public class administrador extends javax.swing.JFrame {
 
     private void btnUltimoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUltimoActionPerformed
 
-        /*if(tempDatos.Primero()==null){
+        if(tempDatos.Primero()==null){
             JOptionPane.showMessageDialog(rootPane, "No hay datos a mostrar");
         }else{
             MostrarDatos(tempDatos.Ultimo());
-        }*/
-        IndiceLista = ComprasRegistradas.size() - 1;
-        tempDatos.objetoTemp = tempDatos.objetoCola;
-        MostrarDatos(tempDatos.objetoTemp);
-        MostrarDatos(tempDatos.Ultimo());
+        }
+        //IndiceLista = ComprasRegistradas.size() - 1;
+        //tempDatos.objetoTemp = tempDatos.objetoCola;
+        //MostrarDatos(tempDatos.objetoTemp);
+        
+        //MostrarDatos(tempDatos.Ultimo());
         
     }//GEN-LAST:event_btnUltimoActionPerformed
 
@@ -453,10 +453,7 @@ public class administrador extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Dato eliminado");
             
         } catch (Exception e) {
-            //JOptionPane.showMessageDialog(this, "No hay mas registros");
-            JOptionPane.showMessageDialog(this, "Dato Eliminado");
-            btnAceptarCambios.setEnabled(true);
-            /*Con esta linea aqui se logra eliminar la primera posicion pero no la ultima*/
+            JOptionPane.showMessageDialog(this, "No hay mas registros");
         }
 
         IndiceLista--;

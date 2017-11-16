@@ -54,10 +54,10 @@ public class Cls_DatosApuntador {
     */
     
     
-        public RegistroCompra llenar(RegistroCompra obTemp, RegistroCompra anterior){
+        public RegistroCompra llenar(RegistroCompra obTemp, RegistroCompra anterior, RegistroCompra siguente){
             
         obTemp.setAnterior(anterior);
-        obTemp.setSiguiente(null);
+        obTemp.setSiguiente(siguente);
         
         return obTemp;       
     }
@@ -86,11 +86,12 @@ public class Cls_DatosApuntador {
         public void guardar(RegistroCompra nuevo){
         
         if(objetoInicial==null){
-            objetoInicial = llenar(nuevo,null);
+            objetoInicial = llenar(nuevo,null,null);
             objetoCola = objetoInicial;   
         }else{
-            objetoCola.setSiguiente(llenar(nuevo,objetoCola));
+            objetoCola.setSiguiente(llenar(nuevo,objetoCola, objetoInicial));
             objetoCola = objetoCola.getSiguiente();
+            objetoInicial.setAnterior(objetoCola);
         }
         
         objetoTemp = objetoCola;
