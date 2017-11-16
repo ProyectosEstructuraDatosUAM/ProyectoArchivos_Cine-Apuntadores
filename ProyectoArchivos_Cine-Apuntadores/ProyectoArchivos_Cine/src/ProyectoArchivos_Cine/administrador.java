@@ -299,74 +299,43 @@ public class administrador extends javax.swing.JFrame {
 
 
     private void btnPrimeroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPrimeroActionPerformed
-        
-        if(tempDatos.Primero()==null){
+
+        if (tempDatos.objetoInicial == null) {
             JOptionPane.showMessageDialog(rootPane, "No hay datos a mostrar");
-        }else{
+        } else {
             MostrarDatos(tempDatos.Primero());
         }
-         
 
-        //IndiceLista = 0;
-        //tempDatos.objetoTemp = tempDatos.objetoInicial;
-        //MostrarDatos(tempDatos.objetoTemp);
-        //MostrarDatos(tempDatos.Primero());
     }//GEN-LAST:event_btnPrimeroActionPerformed
 
     private void btnAnteriorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAnteriorActionPerformed
 
-        if (tempDatos.Primero() == null) {
+        if (tempDatos.objetoInicial == null) {
             JOptionPane.showMessageDialog(rootPane, "No hay datos a mostrar");
         } else {
             MostrarDatos(tempDatos.Anterior());
         }
-        
-        //if (IndiceLista < 1) {
-        //    IndiceLista = 0;
-        //} else {
-        //    IndiceLista--;
-        //}
-        /*try {
-            MostrarDatos(tempDatos.objetoTemp.getAnterior());
-        } catch (Exception e) {
 
-        }*/
     }//GEN-LAST:event_btnAnteriorActionPerformed
 
     private void btnSiguienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSiguienteActionPerformed
 
-        if (tempDatos.Primero() == null) {
+        if (tempDatos.objetoInicial == null) {
             JOptionPane.showMessageDialog(rootPane, "No hay datos a mostrar");
         } else {
             MostrarDatos(tempDatos.Siguiente());
         }
 
-
-        //if (IndiceLista >= (ComprasRegistradas.size() - 1)) {
-        //    IndiceLista = ComprasRegistradas.size() - 1;
-        //} else {
-        //    IndiceLista++;
-        //}
-        /*try {
-            MostrarDatos(tempDatos.objetoTemp.getSiguiente());
-        } catch (Exception e) {
-
-        }*/
     }//GEN-LAST:event_btnSiguienteActionPerformed
 
     private void btnUltimoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUltimoActionPerformed
 
-        if(tempDatos.Primero()==null){
+        if (tempDatos.objetoInicial == null) {
             JOptionPane.showMessageDialog(rootPane, "No hay datos a mostrar");
-        }else{
+        } else {
             MostrarDatos(tempDatos.Ultimo());
         }
-        //IndiceLista = ComprasRegistradas.size() - 1;
-        //tempDatos.objetoTemp = tempDatos.objetoCola;
-        //MostrarDatos(tempDatos.objetoTemp);
-        
-        //MostrarDatos(tempDatos.Ultimo());
-        
+
     }//GEN-LAST:event_btnUltimoActionPerformed
 
     private void btnRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrarActionPerformed
@@ -419,8 +388,6 @@ public class administrador extends javax.swing.JFrame {
                 temp.setIDCompra(DatosCompra[15]);
 
                 tempDatos.guardar(temp);
-                //RegistrosActuales.add(linea);
-                //ComprasRegistradas.add(temp);
 
             }
 
@@ -436,37 +403,24 @@ public class administrador extends javax.swing.JFrame {
         btnAnterior.setEnabled(true);
         btnCargar.setEnabled(false);
         btnDenegar.setEnabled(true);
-        
-        tempDatos.objetoTemp=tempDatos.objetoInicial;
+
+        tempDatos.objetoTemp = tempDatos.objetoInicial;
         MostrarDatos(tempDatos.objetoInicial);
 
     }//GEN-LAST:event_btnCargarActionPerformed
 
     private void btnDenegarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDenegarActionPerformed
 
-        // tempDatos.Eliminar(txtNumeroTarjeta.getText());
         try {
-//            ComprasRegistradas.remove(IndiceLista);
-//            RegistrosActuales.remove(IndiceLista);
             tempDatos.Eliminar(tempDatos.objetoTemp.getIDCompra());
             btnAceptarCambios.setEnabled(true);
-            JOptionPane.showMessageDialog(this, "Dato eliminado");
-            
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(this, "No hay mas registros");
-        }
-
-        IndiceLista--;
-
-        if (IndiceLista <= 0) {
-            IndiceLista = 0;
-        }
-
-        if (!ComprasRegistradas.isEmpty()) {
-            MostrarDatos(ComprasRegistradas.get(IndiceLista));
-        } else {
             btnDenegar.setEnabled(true);
 
+            JOptionPane.showMessageDialog(this, "Dato eliminado");
+            MostrarDatos(tempDatos.objetoTemp);
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "No hay mas registros");
             RegistroCompra ob = new RegistroCompra();
             ob.setPeliculaSeleccionada("");
             ob.setCantidadTiquetes("");
@@ -480,28 +434,24 @@ public class administrador extends javax.swing.JFrame {
             MostrarDatos(ob);
         }
 
+
     }//GEN-LAST:event_btnDenegarActionPerformed
 
     private void btnAceptarCambiosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAceptarCambiosActionPerformed
         // TODO add your handling code here:
-       // UsoArchivos archivo = new UsoArchivos();
+        // UsoArchivos archivo = new UsoArchivos();
         String linea = "";
 
         for (int i = 0; i < RegistrosActuales.size(); i++) {
             linea = linea + RegistrosActuales.get(i) + "\r\n";
         }
-        
-        tempDatos.ActualizarArchivo();
-        
 
-        
+        tempDatos.ActualizarArchivo();
+
         tempDatos.objetoTemp = tempDatos.objetoInicial;
         MostrarDatos(tempDatos.objetoTemp);
-        /*try {
-            archivo.GuardarCambios(linea);
-        } catch (IOException ex) {
-            Logger.getLogger(administrador.class.getName()).log(Level.SEVERE, null, ex);
-        }*/
+       
+        
         btnAceptarCambios.setEnabled(false);
 
 
