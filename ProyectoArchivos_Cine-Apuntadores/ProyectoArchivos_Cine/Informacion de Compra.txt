@@ -1,2 +1,10 @@
+﻿rafa;879798;123;rdi@oau.com;rafa;Visa;7647647647;01/2017;144;4000;Joven;2;Blade Runner - Double Feature;Mañana 10:00-12:00;Btn_D8,Btn_D7;0
+Luis;878976;16716726672;luis@uam.com;Luis;Visa;61576771676761;01/2017;155;6000;Adulto Mayor;3;Blade Runner - Double Feature;Tarde 16:00-18:00;Btn_A9,Btn_D8,Btn_D7,;1
+Jose Sanchez;67854392;3452452452;JoseSanchez@min.com;Jose Sanchez;American Express;456987;01/2017;34;10000;Adulto;5;NinjaGo - Lego;Tarde 16:00-18:00;Btn_A14,Btn_B14,Btn_C14,Btn_D14,Btn_E14,;2
+Juan Perez;56478689;675643234;JuanPerez@ice.com;Juan Perez;American Express;64736753737773;01/2017;675;36000;Adulto;18;It - El payaso diabolico;Tarde 16:00-18:00;Btn_E10,Btn_E9,Btn_E8,Btn_E7,Btn_E6,Btn_E5,Btn_C10,Btn_C9,Btn_C8,Btn_C7,Btn_C6,Btn_C5,Btn_A10,Btn_A9,Btn_A8,Btn_A7,Btn_A6,Btn_A5,;3
+Marcos;888876;675434;Marcos@lk.com;Marcos;American Express;4352545t3;01/2017;234;2000;Joven;1;It - El payaso diabolico;Tarde 16:00-18:00;Btn_E7,;4
+Marcos Ramoz;88888888;22234334;MarcosRamoz@Ramoz.com;Marcos Ramoz;MasterCard;2323;01/2021;342;4000;Joven;2;NinjaGo - Lego;Mañana 10:00-12:00;Btn_D8,Btn_D7,;5
+Rafiña;76788787;15581735373938;rafiki;Rafiña;MasterCard;6656656566565;01/2017;176;4000;Adulto;2;It - El payaso diabolico;Noche 20:00-22:00;Btn_E8,Btn_E7,;6
 rafikiiiii;rafikiii;rafikiiii;rafikiiii;rafikiiiii;American Express;rafikiiiii;01/2017;rafikiii;2000;Niño;1;It - El payaso diabolico;Mañana 10:00-12:00;Btn_A8,;7
 Marcos Manuel;8838432432;7643276743;MarcosManuel@manuel;Marcos Manuel;Visa;432443554;01/2017;345;8000;Joven;4;Blade Runner - Double Feature;Mañana 10:00-12:00;Btn_B9,Btn_B8,Btn_B7,Btn_B6,;8
+MarcoMendoza;226541225;123456789;MarcoMendoza@mendoza.com;MarcoMendoza;MasterCard;8962147855;01/2022;908;12000;Joven;6;Battle of the Sexes;Mañana 10:00-12:00;Btn_B8,Btn_B7,Btn_C7,Btn_C8,Btn_D8,Btn_D7,;9

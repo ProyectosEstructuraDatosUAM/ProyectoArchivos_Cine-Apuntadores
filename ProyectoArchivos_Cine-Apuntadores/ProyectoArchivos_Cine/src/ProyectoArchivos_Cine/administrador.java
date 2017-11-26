@@ -8,21 +8,24 @@ import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
-
 /**
  * Form para uso de administrador donde se vizualiza la reservacion se acepta o
  * se rechaza, si se rechaza el metodo en selecciona campos se pondra de nuevo
  * en verde, de lo contrario el sistema lo mantendra en rojo
  */
 public class administrador extends javax.swing.JFrame {
-
+    //Se agrega objeto de la clase de apuntador 
+    private Cls_DatosApuntador tempDatos = new Cls_DatosApuntador();
+    private ArrayList<RegistroCompra> ComprasRegistradas = new ArrayList<RegistroCompra>();
+    private ArrayList<String> RegistrosActuales = new ArrayList<String>();
+    private int IndiceLista = 0;
+    int count=0; //se agrega variable contador
     /**
      * Creates new form administrador
      */
     public administrador() {
         initComponents();
     }
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -304,15 +307,6 @@ public class administrador extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    //Se agrega objeto de la clase de apuntador 
-    private Cls_DatosApuntador tempDatos = new Cls_DatosApuntador();
-
-    private ArrayList<RegistroCompra> ComprasRegistradas = new ArrayList<RegistroCompra>();
-    private ArrayList<String> RegistrosActuales = new ArrayList<String>();
-    private int IndiceLista = 0;
-    int count=0; //se agrega variable contador
-
-
     private void btnPrimeroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPrimeroActionPerformed
 
         if (tempDatos.objetoInicial == null) {
@@ -452,7 +446,6 @@ public class administrador extends javax.swing.JFrame {
             MostrarDatos(ob);
         }
 
-
     }//GEN-LAST:event_btnDenegarActionPerformed
 
     private void btnAceptarCambiosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAceptarCambiosActionPerformed
@@ -468,15 +461,14 @@ public class administrador extends javax.swing.JFrame {
 
         tempDatos.objetoTemp = tempDatos.objetoInicial;
         MostrarDatos(tempDatos.objetoTemp);
-       
-        
+
         btnAceptarCambios.setEnabled(false);
 
 
     }//GEN-LAST:event_btnAceptarCambiosActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        JOptionPane.showMessageDialog(rootPane, "El total de registros entro del sistema es de : "
+        JOptionPane.showMessageDialog(rootPane, "El total de registros dentro del sistema es de : "
                 +count);
     }//GEN-LAST:event_jButton1ActionPerformed
 
